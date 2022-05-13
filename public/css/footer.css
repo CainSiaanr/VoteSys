@@ -1,0 +1,10 @@
+
+
+.footer {
+	flex-shrink: 0;
+}
+
+.copyright {
+	float: right;
+	font-family: 'Roboto', sans-serif;
+}

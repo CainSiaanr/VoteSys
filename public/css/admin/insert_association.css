@@ -1,0 +1,94 @@
+/* Main login body */
+.form {
+	width: 70%;
+	max-width: 550px;
+	position: relative;
+	padding: 37px 48px 10px;
+	border: 1px solid #4c5067;
+	margin: 50px auto 30px;
+	background: #ffffff;
+}
+
+.cardLogin {
+	width: 100%;
+	padding: 0px;
+	margin: auto;
+}
+
+.card-header {
+	margin-bottom: 8px;
+	text-align: center;
+	font-family: Poppins, sans-serif;
+	border-bottom: 2px solid black;
+}
+
+.form-group {
+	position: relative;
+	width: 80%;
+	margin: 20px auto;
+}
+
+.label {
+	font-size: 16px;
+	font-family: Roboto, sans-serif;
+	display:block;
+}
+
+.field {
+	display: block;
+	width: 100%;
+	height: 48px;
+	padding: 10px;
+	border: 2px solid #4c5067;
+	/*border-radius: 10px;*/
+	font-size: 16px;
+	font-family: Roboto, sans-serif;
+	letter-spacing: .1px;
+}
+
+.foto{
+	display:block;
+	height:300px;
+	max-width: 100%;
+}
+
+.buttons{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.btn-left {
+	width: 30%;
+	height: 45px;
+	margin: 0px;
+	border: 0px;
+	background-color: #000000;
+}
+
+.btn-left a{
+	text-decoration:none;
+	font-size: 20px;
+	line-height: 1.11;
+	font-weight: 500;
+	color: #ffffff;
+}
+
+.btn-right {
+	width: 30%;
+	height: 45px;
+	margin: 0px;
+	border: 0px;
+	font-size: 20px;
+	line-height: 1.11;
+	background-color: #F77474;
+	font-weight: 500;
+	color: #ffffff;
+}
+
+/* Responsive page for smaller screens */
+@media screen and (max-width: 500px) {
+	.btn-left, .btn-right{
+		width: 50%;
+	}
+}

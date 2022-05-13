@@ -1,0 +1,245 @@
+/*Second Header*/
+.second-header {
+	display: flex;
+	flex-direction: row;
+	height: 70px;
+	width: 100%;
+	background-color: #FFFFFF;
+	justify-content: center;
+}
+
+.second-title {
+	height: max-content;
+	margin: auto 0px auto 30px;
+	font-family: 'Poppins', sans-serif;
+}
+
+/* Button */
+.insert-button, .insert-button::after {
+	width: 190px;
+	max-width: 20%;
+	min-width: 130px;
+	height: 65%;
+	font-size: 14px;
+	font-family: 'Roboto', sans-serif;
+	padding: 0;
+	border: 0;
+	margin: auto 30px auto 0px;
+	background-color: #F77474;
+	letter-spacing: 0px;
+	position: relative;
+}
+
+	.insert-button a {
+		display: flex;
+		color: #FFFFFF;
+	}
+
+.fa-plus {
+	margin: auto 10px;
+}
+
+.fa-refresh, .fa-trash {
+	color: #F77474;
+}
+
+/* Table */
+.newscontainer {
+	max-width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0px 20px;
+	font-family: 'Roboto', sans-serif;
+}
+
+.responsive-table tr {
+	/*border-radius: 3px;*/
+	padding: 25px 30px;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 0px;
+}
+
+.responsive-table .table-header {
+	background-color: #F77474;
+	font-size: 14px;
+	text-transform: uppercase;
+	font-weight: 600;
+	letter-spacing: 0.03em;
+}
+
+.responsive-table .table-row {
+	background-color: #ffffff;
+	/*box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);*/
+}
+
+.responsive-table .col-1 {
+	flex-basis: 5%;
+}
+
+.responsive-table .col-2 {
+	flex-basis: 22.5%;
+}
+
+.responsive-table .col-3 {
+	flex-basis: 22.5%;
+}
+
+.responsive-table .col-4 {
+	flex-basis: 22.5%;
+}
+
+.responsive-table .col-5 {
+	flex-basis: 22.5%;
+}
+
+.responsive-table .col-6 {
+	flex-basis: 5%;
+}
+
+.responsive-table {
+	padding: 0;
+	width: 100%;
+}
+
+
+/*NEW*/
+
+@media all and (min-width: 701px) {
+	.iconDetails {
+		width: 80%;
+	}
+
+	thead, tbody {
+		display: block;
+	}
+}
+
+@media all and (max-width: 700px) {
+	.second-title {
+		font-size: 24px;
+	}
+
+	.responsive-table .table-header {
+		display: none;
+	}
+
+	.responsive-table tr {
+		display: block;
+	}
+
+	.responsive-table .col {
+		flex-basis: 100%;
+	}
+
+	.responsive-table .col {
+		display: flex;
+		padding: 10px 0;
+	}
+
+		.responsive-table .col:before {
+			color: #F77474;
+			content: attr(label);
+			width: 35%;
+			min-width: 35%;
+			margin-right: 10px;
+			text-align: left;
+		}
+
+	.iconDetails {
+		width: 45%;
+		max-width: 250px;
+	}
+}
+
+@media all and (max-width: 430px) {
+	.second-title {
+		font-size: 16px;
+	}
+}
+
+
+
+/*MODAL*/
+
+/* Set a style for all buttons */
+.okbtn, .cancelbtn {
+	padding: 14px 20px;
+	margin: 8px auto;
+	cursor: pointer;
+	width: 50%;
+	opacity: 0.9;
+	float: left;
+}
+
+.okbtn {
+	background-color: #F77474;
+	color: white;
+}
+
+.cancelbtn {
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+.okbtn:hover {
+	opacity: 1;
+}
+
+.cancelbtn:hover {
+	opacity: 1;
+}
+
+/* Add padding and center-align text to the container */
+.container {
+	padding: 16px;
+	text-align: center;
+}
+
+/* The Modal (background) */
+.deletemodal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(125,125,125,0.5);
+	padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+	background-color: #fefefe;
+	margin: 10% auto;
+	border: 1px solid #888;
+	width: 50%;
+}
+
+/* Clear floats */
+.clearfix::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+/* Change styles for cancel button and delete button on extra small screens */
+@media screen and (max-width: 700px) {
+	.modalbtn {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 550px) {
+	.modal-content {
+		width: 80%;
+	}
+}
+
+@media screen and (max-width: 350px) {
+	.form {
+		margin: 0px auto;
+	}
+}

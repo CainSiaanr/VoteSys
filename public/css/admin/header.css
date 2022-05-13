@@ -1,0 +1,332 @@
+html, body {
+	height: 100%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	background-repeat: no-repeat;
+	background-size: auto;
+}
+
+.main-content {
+	flex: 1 0 auto;
+}
+
+/* Style the header with a grey background and some padding */
+.header {
+	overflow: visible;
+	background-color: #ffffff;
+	padding: 10px 0px;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+	border: 5px solid #F77474;
+	border-left-width: 0px;
+	border-right-width: 0px;
+	border-top-width: 0px;
+}
+
+/* Style the header links */
+.header a {
+	float: left;
+	text-align: center;
+	color: #000000;
+	padding: 12px;
+	display: block;
+	text-decoration: none;
+	font-size: 18px;
+	line-height: 25px;
+	border-radius: 4px;
+}
+
+/* Style the logo link */
+.header a.logo {
+	font-size: 25px;
+	font-weight: bold;
+	padding: 0px 0px 0px 50px;
+}
+
+/* Change the background color on mouse-over */
+.header a:hover:not(.logout):not(.logo) {
+	background-color: #ddd;
+}
+
+.header .icon {
+	display: none;
+}
+
+/* The dropdown container */
+.dropdown {
+	position: relative;
+	float: left;
+	font-family: 'Poppins', sans-serif;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+	font-size: 18px;
+	border: none;
+	outline: none;
+	height: 50px;
+	color: #000000;
+	padding: 12px;
+	background-color: inherit;
+	font-family: inherit; /* Important for vertical align on mobile phones */
+	margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: white;
+	width: 100%;
+	overflow: auto;
+	z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+	float: none;
+	color: #000000;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+	background-color: #ddd;
+}
+
+#cumalogout {
+	padding: 0px;
+}
+
+/* Float the link section to the right */
+.header-right {
+	float: right;
+	padding: 0px 0px 0px 0px;
+}
+
+/* Making sure the content is below the header */
+.main-content {
+	margin-top: 70px;
+}
+
+/* 25% width columns */
+.column-25 {
+	float: left;
+	width: 25%;
+}
+
+/* 50% width columns */
+.column-50 {
+	float: left;
+	width: 50%;
+}
+
+/* Center aligned elements*/
+.center {
+	float: center;
+}
+
+/* Right aligned elements*/
+.right {
+	right: 0;
+}
+
+.arrow-right {
+	display: none;
+}
+
+@media screen and (min-width: 911px) {
+	/* Show the dropdown menu on hover */
+	.dropdown:hover .dropdown-content {
+		display: block;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	}
+
+	.dropdown:hover .dropbtn {
+		border: 5px solid #F77474;
+		border-left-width: 0px;
+		border-right-width: 0px;
+		border-top-width: 0px;
+		padding-bottom: 7px;
+	}
+
+	/* Changing cursor to pointer to help visitor distinguish clickable elements */
+	.head-clickable:hover {
+		cursor: pointer;
+	}
+}
+
+/* Responsive page for smaller screens */
+@media screen and (max-width: 910px) {
+	.header {
+		height: auto;
+	}
+
+	.header-right {
+		border-top: 5px solid #F77474;
+	}
+
+	.header-right div {
+		display: none;
+	}
+
+	.header a.icon {
+		float: right;
+		display: block;
+	}
+
+	.header.responsive {
+		padding-bottom: 0px;
+	}
+
+	.header.responsive .icon {
+		position: absolute;
+		right: 0;
+		top: 10;
+	}
+
+	.header.responsive .header-right {
+		float: left;
+		width: 100%;
+		margin-top: 10px;
+	}
+
+	.header.responsive .header-right .dropdown {
+		float: left;
+		display: block;
+		width: 100%;
+	}
+
+	.dropdown {
+		//border-top: 3px inset black;
+		box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.4);
+	}
+
+	.dropdown-content {
+		position: static;
+		padding-left: 10px;
+	}
+
+	.dropbtn {
+		width: 90%;
+		text-align: left;
+	}
+
+	.dropbtn:hover{
+		cursor: pointer;
+	}
+
+	.arrow-right {
+		display: inline-block;
+		color: #F77474;
+	}
+
+	.dropdown:hover .dropdown-content.non-null {
+	}
+
+	.dropdown.clicked .dropdown-content.non-null {
+		display: block;
+	}
+
+	#cumalogout {
+		width: 100%;
+		text-align: left;
+	}
+
+	/*.main-content.responsive {
+		margin-top: 470px;
+	}*/
+}
+
+
+/*MODAL*/
+
+/* Set a style for all buttons */
+.okbtn, .cancelbtn {
+	padding: 14px 20px;
+	margin: 8px auto;
+	cursor: pointer;
+	width: 50%;
+	opacity: 0.9;
+	float: left;
+}
+
+.okbtn {
+	background-color: #F77474;
+	color: white;
+}
+
+.cancelbtn {
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+	.okbtn:hover {
+		opacity: 1;
+	}
+
+	.cancelbtn:hover {
+		opacity: 1;
+	}
+
+/* Add padding and center-align text to the container */
+.container {
+	padding: 16px;
+	text-align: center;
+}
+
+/* The Modal (background) */
+.logoutmodal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(125,125,125,0.5);
+	padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+	background-color: #fefefe;
+	margin: 10% auto;
+	border: 1px solid #888;
+	width: 50%;
+}
+
+/* Clear floats */
+.clearfix::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+/* Change styles for cancel button and delete button on extra small screens */
+@media screen and (max-width: 700px) {
+	.modalbtn {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 550px) {
+	.modal-content {
+		width: 80%;
+	}
+}
+
+@media screen and (max-width: 350px) {
+	.form {
+		margin: 0px auto;
+	}
+}
