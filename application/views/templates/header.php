@@ -26,7 +26,7 @@
 		}
 		?>
 			<!--Urvoice logo-->
-			<a href="<?php echo site_url(); ?>/home" class="logo"><img src= "<?php echo base_url(); ?>/public/img/urvoice_logo.png" width="112" height="50"></a>
+			<a href="<?php echo site_url(); ?>/home" class="logo"><img src= "<?php echo base_url(); ?>/public/img/urvoice_logo.png" width="120"></a>
 			<!--Hamburger icon-->
 			<a href="javascript:void(0);" class="icon" onclick="myFunction()">
 				<i class="fa fa-bars"></i>

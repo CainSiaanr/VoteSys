@@ -1,6 +1,6 @@
 <?php 
 if($role != null){
-	if($candidate != null){
+	if($candidate != null & $prodi != null){
 		if($voted != true){
 ?>
 

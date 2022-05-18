@@ -45,12 +45,17 @@ class Pages extends CI_Controller {
 				}
 				break;
 			case 'vote' :
-				$data['prodi'] = $this->get_association_by_id($this->input->cookie('prodi'));
-				$data['enddate'] = new DateTime($data['prodi']['0']->tanggal_selesai." ".$data['prodi']['0']->jam_selesai);
-
-				if(new DateTime(date("Y-m-d H:i:s")) > new DateTime($data['prodi']['0']->tanggal_mulai.$data['prodi']['0']->jam_mulai) && new DateTime(date("Y-m-d H:i:s")) < new DateTime($data['prodi']['0']->tanggal_selesai.$data['prodi']['0']->jam_selesai)){
-					$data['candidate'] = $this->get_candidates($this->input->cookie('prodi')); 
+				if($this->input->cookie('prodi') != null){
+					$data['prodi'] = $this->get_association_by_id($this->input->cookie('prodi'));
+					$data['enddate'] = new DateTime($data['prodi']['0']->tanggal_selesai." ".$data['prodi']['0']->jam_selesai);
+	
+					if(new DateTime(date("Y-m-d H:i:s")) > new DateTime($data['prodi']['0']->tanggal_mulai.$data['prodi']['0']->jam_mulai) && new DateTime(date("Y-m-d H:i:s")) < new DateTime($data['prodi']['0']->tanggal_selesai.$data['prodi']['0']->jam_selesai)){
+						$data['candidate'] = $this->get_candidates($this->input->cookie('prodi')); 
+					}else{
+						$data['candidate'] = null;
+					}
 				}else{
+					$data['prodi'] = null;
 					$data['candidate'] = null;
 				}
 
