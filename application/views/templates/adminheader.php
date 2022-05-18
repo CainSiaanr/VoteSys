@@ -30,7 +30,6 @@
 						<a class="dropdown-link" href="<?php echo site_url(); ?>/admin/candidate">Calon Organisator</a>
 						<a class="dropdown-link" href="<?php echo site_url(); ?>/admin/voter">Pemberi Suara</a>
 						<a class="dropdown-link" href="<?php echo site_url(); ?>/admin/association">Himpunan</a>
-						<a class="dropdown-link" href="<?php echo site_url(); ?>/admin/schedule">Jadwal Pemilu</a>
 					</div>
 				</div>
 				<div class="dropdown" id="dropdown2">

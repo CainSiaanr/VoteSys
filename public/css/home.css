@@ -102,16 +102,19 @@
 	overflow-wrap: break-word;
 }
 
-/*.nama-ketua{
-	margin: 0;
+.nama-ketua {
+	margin-bottom: 0px;
+	margin-top: 0px;
+	font-size: 21px;
 }
 
-.nama-wakil{
-	margin: 0;
-}*/
+.nama-wakil {
+	margin-bottom: 0px;
+	margin-top: 5px;
+}
 
 .link-insta {
-	height: 50px;
+	height: 25px;
 }
 
 /* Responsive page for smaller screens */

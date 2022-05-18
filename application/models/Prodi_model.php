@@ -30,11 +30,15 @@
         }
 		
 		//Function to insert new prodi
-        public function insert_prodi($akronim, $nama, $logo){
+        public function insert_prodi($akronim, $nama, $logo, $tanggal_mulai, $tanggal_selesai, $jam_mulai, $jam_selesai){
             $data = array(
 				'akronim' => $akronim, 
 				'nama' => $nama, 
-				'logo' => $logo
+				'logo' => $logo,
+				'tanggal_mulai' => $tanggal_mulai,
+				'tanggal_selesai' => $tanggal_selesai,
+				'jam_mulai' => $jam_mulai,
+				'jam_selesai' => $jam_selesai
 			);
 
 			$this->db->trans_start();
@@ -50,17 +54,25 @@
         }
 		
 		//Function to update prodi according to their id
-        public function update_prodi($id, $akronim, $nama, $logo){
+        public function update_prodi($id, $akronim, $nama, $logo, $tanggal_mulai, $tanggal_selesai, $jam_mulai, $jam_selesai){
             if($logo == '0'){	
 				$data = array(
 					'akronim' => $akronim, 
-					'nama' => $nama
+					'nama' => $nama,
+					'tanggal_mulai' => $tanggal_mulai,
+					'tanggal_selesai' => $tanggal_selesai,
+					'jam_mulai' => $jam_mulai,
+					'jam_selesai' => $jam_selesai
 				);
 			}else{
 				$data = array(
 					'akronim' => $akronim, 
 					'nama' => $nama, 
-					'logo' => $logo
+					'logo' => $logo,
+					'tanggal_mulai' => $tanggal_mulai,
+					'tanggal_selesai' => $tanggal_selesai,
+					'jam_mulai' => $jam_mulai,
+					'jam_selesai' => $jam_selesai
 				);
 			}
 			

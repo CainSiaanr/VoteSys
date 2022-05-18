@@ -1,6 +1,6 @@
 <?php 
 if($role != null){
-	if($prodi != null && $candidate != null){
+	if($candidate != null){
 		if($voted != true){
 ?>
 
@@ -21,17 +21,14 @@ if($role != null){
 				echo "<h3 class='title'><b>".$row->calon_wakil_ketua."</b></h3>";
 			echo "</div>";
         echo "</div></a>";
-        $count--;
-        if($count < 0){
-        break;
-        }
+        $count = $count*10000;
     }
     ?>
 </div>
 
 <?php 
 $count = 1;
-for($i = 1; $i <= 2; $i++) { ?>
+for($i = 1; $i <= count($candidate); $i++) { ?>
 <div id="votemodal<?php echo $count ?>" class="votemodal">
 	<form class="modal-content" action="<?php echo site_url().'/savevote/save_vote/'.$count; ?>" method="POST">
 		<div class="container">
@@ -46,7 +43,7 @@ for($i = 1; $i <= 2; $i++) { ?>
 	</form>
 </div>
 <?php 
-	$count--;
+    $count = $count*10000;
 }
 ?>
 

@@ -102,6 +102,41 @@
 	overflow-wrap: break-word;
 }
 
+.nama-ketua {
+	margin-bottom: 0px;
+	margin-top: 0px;
+	font-size: 21px;
+	text-align: center;
+}
+
+.nama-wakil {
+	margin-bottom: 0px;
+	margin-top: 5px;
+	text-align: center;
+}
+
+.circle {
+	width: 60px;
+	height: 60px;
+	border: 2px solid #F77474;
+	border-radius: 50%;
+	margin: 20px auto;
+	background: #F77474;
+	font-size: 20px;
+	color: #FFFFFF;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.number {
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+	margin: 5px auto;
+	font-size: 16px;
+	font-weight: 600;
+}
 
 /* Responsive page for smaller screens */
 @media screen and (max-width: 700px) {

@@ -2,15 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\application",
+    "\\application\\models",
     "\\application\\views",
     "\\application\\views\\pages",
     "\\application\\views\\pages\\admin",
     "\\application\\views\\pages\\admin\\adminaction",
     "\\application\\views\\templates",
     "\\public",
-    "\\public\\css",
-    "\\public\\css\\admin"
+    "\\public\\css"
   ],
-  "SelectedNode": "\\application\\views\\templates",
+  "SelectedNode": "\\public\\css\\login.css",
   "PreviewInSolutionExplorer": false
 }

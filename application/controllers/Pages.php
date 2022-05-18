@@ -3,7 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pages extends CI_Controller {
 
-	//TODO : SWITCH $page TO Login AND UNCOMMENT THE HEADER ON "LOADING PAGES AND DATA"
     public function view($page = 'landingpage')
 	{
         if ( ! file_exists(APPPATH.'views/pages/'.$page.'.php'))
@@ -32,45 +31,6 @@ class Pages extends CI_Controller {
 
 		//Set timezone
 		date_default_timezone_set('Asia/Jakarta');
-		/*
-		echo '<pre>';
-		echo print_r($this->input->cookie());
-		echo '<pre>';
-		$this->load->model('candidate_model');
-	echo '<pre>';
-	print_r($this->candidate_model->fetch_candidate_by_id('1')['0']->nama_himpunan);
-	print_r($this->get_candidates('HMIF'));
-	print_r($this->input->cookie());
-	print_r(localtime(time(),true));
-	print_r(date_default_timezone_get());
-	print_r(ini_get('date.timezone'));
-	date_default_timezone_set('Asia/Jakarta');
-	print_r(date_default_timezone_get());
-	print_r(ini_get('date.timezone'));
-
-	echo "<br>";
-	print_r(gettimeofday(true));
-	echo "<br>";
-	print_r(date("Y-m-d H:i:s"));
-	//print_r(getdate());
-	echo "<br>";
-	var_dump(strtotime(date("Y-m-d H:i:s")));
-	var_dump(strtotime($data['schedule']->start_date." ".$data['schedule']->start_time));
-	var_dump(strtotime($data['schedule']->start_date.$data['schedule']->start_time));
-	var_dump(strtotime($data['schedule']->end_date.$data['schedule']->end_time));
-	
-	var_dump(new DateTime(date("Y-m-d H:i:s")));
-	var_dump(new DateTime($data['schedule']->start_date." ".$data['schedule']->start_time));
-	var_dump(new DateTime($data['schedule']->start_date.$data['schedule']->start_time));
-	var_dump(new DateTime($data['schedule']->end_date.$data['schedule']->end_time));
-	
-	var_dump(new DateTime(date("Y-m-d H:i:s")) > new DateTime($data['schedule']->start_date.$data['schedule']->start_time));
-	var_dump(new DateTime(date("Y-m-d H:i:s")) > new DateTime($data['schedule']->end_date.$data['schedule']->end_time));
-	var_dump(new DateTime(date("Y-m-d H:i:s")) < new DateTime($data['schedule']->end_date.$data['schedule']->end_time));
-	print_r($data['schedule']->start_date.$data['schedule']->start_time);
-	echo "<br>";
-	print_r($data['schedule']->end_date.$data['schedule']->end_time);
-	echo '</pre>';*/
 
 		//Fetching data from database according to the requested page
 		switch ($page){
@@ -85,13 +45,12 @@ class Pages extends CI_Controller {
 				}
 				break;
 			case 'vote' :
-				$data['enddate'] = new DateTime($data['schedule']->end_date." ".$data['schedule']->end_time);
+				$data['prodi'] = $this->get_association_by_id($this->input->cookie('prodi'));
+				$data['enddate'] = new DateTime($data['prodi']['0']->tanggal_selesai." ".$data['prodi']['0']->jam_selesai);
 
-				if(new DateTime(date("Y-m-d H:i:s")) > new DateTime($data['schedule']->start_date.$data['schedule']->start_time) && new DateTime(date("Y-m-d H:i:s")) < new DateTime($data['schedule']->end_date.$data['schedule']->end_time)){
-					$data['prodi'] = $this->get_association_by_id($this->input->cookie('prodi'));
-					$data['candidate'] = $this->get_candidates($this->input->cookie('prodi')); //$this->fetch_candidates();
+				if(new DateTime(date("Y-m-d H:i:s")) > new DateTime($data['prodi']['0']->tanggal_mulai.$data['prodi']['0']->jam_mulai) && new DateTime(date("Y-m-d H:i:s")) < new DateTime($data['prodi']['0']->tanggal_selesai.$data['prodi']['0']->jam_selesai)){
+					$data['candidate'] = $this->get_candidates($this->input->cookie('prodi')); 
 				}else{
-					$data['prodi'] = null;
 					$data['candidate'] = null;
 				}
 
@@ -108,21 +67,19 @@ class Pages extends CI_Controller {
 				}
 				break;
 			case 'votingresult':
-				$data['enddate'] = new DateTime($data['schedule']->end_date." ".$data['schedule']->end_time);
-				
-				if(new DateTime(date("Y-m-d H:i:s")) > new DateTime($data['schedule']->end_date.$data['schedule']->end_time)){
-					$data['prodi'] = $this->get_association();
-					for($i = 0; $i < count($data['prodi']); $i++)
-					{
+				$data['prodi'] = $this->get_association();
+
+				for($i = 0; $i < count($data['prodi']); $i++)
+				{
+					if(new DateTime(date("Y-m-d H:i:s")) > new DateTime($data['prodi'][$i]->tanggal_selesai.$data['prodi'][$i]->jam_selesai)){
 						$data['candidate'][$i] = $this->get_candidates($data['prodi'][$i]->id);
 						$data['result'][$i] = $this->decrypt($data['prodi'][$i]->id);
 						$data['count'][$i] = $this->get_count($data['prodi'][$i]->id);
+					}else{
+						$data['candidate'][$i] = null;
+						$data['result'][$i] = null;
+						$data['count'][$i] = null;
 					}
-				}else{
-					$data['prodi'] = null;
-					$data['candidate'] = null;
-					$data['result'] = null;
-					$data['count'] = null;
 				}
 				break;
 			case 'contact':
@@ -191,9 +148,9 @@ class Pages extends CI_Controller {
 		//$x = $this->manualpowmod($c, 802404, 2583615813769);
 
 		//STRING VERSION
-		$x = bcpowmod((string)$c, '802404', '2583615813769');
+		$x = bcpowmod((string)$c, '178158576', '31750039267755649');
 
-		$m = ((((int)$x - 1)/1607363) * 228116) % 1607363;
+		$m = bcmod(bcmul(bcdiv(bcsub($x,'1'),'178185407'),'35104471'),'178185407');
 
 		return $m;
 	}
@@ -215,7 +172,7 @@ class Pages extends CI_Controller {
 
 		for($i = 0; $i < count($query); $i++)
 		{
-			$total = bcmod(bcmul((string)$total, (string)$query[$i]->votee),'2583615813769');
+			$total = bcmod(bcmul((string)$total, (string)$query[$i]->votee),'31750039267755649');
 		}
 
 		return $total;

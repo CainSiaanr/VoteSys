@@ -23,7 +23,9 @@
 						echo "<div class='detil-paslon'>";
 							echo "<h3 class='nama-ketua'>".$row->calon_ketua."</h3>";
 							echo "<h3 class='nama-wakil'>".$row->calon_wakil_ketua."</h3>";
-							//echo "<p>".$row->moto_slogan."</p>";
+							if($row->moto_slogan != null){
+								echo "<p>".$row->moto_slogan."</p>";
+							}
 							if($row->link_instagram != null){
 								echo "<a href='".$row->link_instagram."' target='_blank'><img class='link-insta' src='".base_url()."public/img/instagram_icon.png'></a>";
 							}
@@ -54,7 +56,9 @@
 						echo "<div class='detil-paslon-right'>";
 							echo "<h3 class='nama-ketua'>".$row->calon_ketua."</h3>";
 							echo "<h3 class='nama-wakil'>".$row->calon_wakil_ketua."</h3>";
-							//echo "<p>".$row->moto_slogan."</p>";
+							if($row->moto_slogan != null){
+								echo "<p>".$row->moto_slogan."</p>";
+							}
 							if($row->link_instagram != null){
 								echo "<a href='".$row->link_instagram."' target='_blank'><img class='link-insta' src='".base_url()."public/img/instagram_icon.png'></a>";
 							}

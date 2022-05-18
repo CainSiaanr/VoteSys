@@ -25,6 +25,18 @@
 				echo "<img src='".base_url()."public/img/association/".$row['0']->logo."' class='foto' alt='Image'>";
 				echo "<input type='file' accept='image/png, image/jpeg' name='logo' id='logo' class='field' value='".$row['0']->logo."'>";
 			echo "</div>";
+
+			echo "<div class='form-group' id='startdate'>";
+				echo "<label for='startdate' class='label'>Waktu Dimulai :</label>";
+				echo "<i class='fa fa-calendar' aria-hidden='true'></i><input type='date' name='tanggal_mulai' id='tanggal_mulai' class='field-date' value='".$row['0']->tanggal_mulai."' required>";
+				echo "<i class='fa fa-clock-o' aria-hidden='true'></i><input type='time' name='jam_mulai' id='jam_mulai' class='field-time' value='".$row['0']->jam_mulai."' required/>";
+			echo "</div>";
+			
+			echo "<div class='form-group' id='startdate'>";
+				echo "<label for='enddate' class='label'>Waktu Selesai :</label>";
+				echo "<i class='fa fa-calendar' aria-hidden='true'></i><input type='date' name='tanggal_selesai' id='tanggal_selesai' class='field-date' value='".$row['0']->tanggal_selesai."' required/>";
+				echo "<i class='fa fa-clock-o' aria-hidden='true'></i><input type='time' name='jam_selesai' id='jam_selesai' class='field-time' value='".$row['0']->jam_selesai."' required/>";
+			echo "</div>";
    
 			echo "<div class='form-group buttons'>";
 				echo "<button type='button' class='btn-left'><a href='".site_url()."/admin/association'>Kembali</a></button>";

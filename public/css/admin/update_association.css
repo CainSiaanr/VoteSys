@@ -52,6 +52,34 @@
 	max-width: 100%;
 }
 
+.fa {
+	width: 15px;
+}
+
+.field-date {
+	display: inline-block;
+	width: 45%;
+	height: 48px;
+	padding: 10px;
+	margin: 0px 1%;
+	border: 2px solid #4c5067;
+	font-size: 16px;
+	font-family: Roboto, sans-serif;
+	letter-spacing: .1px;
+}
+
+.field-time {
+	display: inline-block;
+	width: 43%;
+	height: 48px;
+	padding: 10px;
+	margin: 0px 1%;
+	border: 2px solid #4c5067;
+	font-size: 16px;
+	font-family: Roboto, sans-serif;
+	letter-spacing: .1px;
+}
+
 .buttons{
 	display: flex;
 	flex-direction: row;
@@ -88,6 +116,15 @@
 
 
 /* Responsive page for smaller screens */
+@media screen and (max-width: 800px) {
+	.field-date {
+		width: 92%;
+	}
+
+	.field-time {
+		width: 92%;
+	}
+}
 @media screen and (max-width: 500px) {
 	.btn-left, .btn-right {
 		width: 50%;

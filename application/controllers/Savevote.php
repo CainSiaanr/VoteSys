@@ -3,14 +3,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Savevote extends CI_Controller {
 
-	public function save_vote($vote_temp){
+	public function save_vote($m){
 		//Fetch form data
-		//$vote_temp = $this->input->post('vote');
+		//$m = $this->input->post('vote');
 
 		//Set timezone
 		date_default_timezone_set('Asia/Jakarta');
 
-		if($vote_temp != '1' && $vote_temp != '0'){
+		$check = log((int)$m,10000);
+
+		if ( ! preg_match('/^\d+$/', $check) ){
 			$this->session->set_flashdata('query_result', 'Vote tidak valid.');
 			redirect('vote');
 		}
@@ -20,25 +22,25 @@ class Savevote extends CI_Controller {
 			redirect('vote');
 		}
 		
-		$p = '1117'; //'8069';
+		$p = '14759';  //'1117'; //'8069';
 
-		$q = '1439'; //'8539';
+		$q = '12073'; //'1439'; //'8539';
 
-		$n = '1607363'; //'68901191';
+		$n = '178185407'; //'1607363'; //'68901191';
 
-		$n2 = '2583615813769';
+		$n2 = '31750039267755649'; //'2583615813769';
 
-		$g = '1607365'; //'68901192';
+		$g = '178185408'; //'1607365'; //'68901192';
 
-		$lambda = '802404'; //'68884584';
+		$lambda = '178158576'; //'802404'; //'68884584';
 
-		$mu = '228116'; //'4787859';
+		$mu = '35104471'; //'228116'; //'4787859';
 
-		$r = (string)random_int(1, 1607363);
+		$r = (string)random_int(1, 178185407);
 
-		$c = bcmod(bcmul(bcpowmod($g,$vote_temp,$n2),bcpowmod($r,$n,$n2)),$n2);
+		$c = bcmod(bcmul(bcpowmod($g,$m,$n2),bcpowmod($r,$n,$n2)),$n2);
 
-		//$c = $vote_temp;
+		//$c = $m;
 
 		//Load model and insert new entry to database
 		$this->load->model('vote_model');

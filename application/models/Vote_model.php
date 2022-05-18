@@ -16,8 +16,9 @@
 		//Function to fetch all votes (for admin use only)
 		public function fetch_all_vote(){
 			$this->db->trans_start();
-			$this->db->select('voting_ballot.*, himpunan.akronim AS program_studi');
+			$this->db->select('voting_ballot.*, himpunan.akronim AS program_studi, mahasiswa.nama AS voter_name');
 			$this->db->join('himpunan', 'himpunan.id = voting_ballot.himpunan_id');
+			$this->db->join('mahasiswa', 'mahasiswa.id = voting_ballot.voter_id');
 			$this->db->order_by('time_submitted', 'ASC');
             $query = $this->db->get('voting_ballot');
 			$this->db->trans_complete();

@@ -161,10 +161,14 @@ class Crud extends CI_Controller {
 				$nama = $this->input->post('nama');
 				$akronim = $this->input->post('akronim');
 				$logo = $this->upload->data('file_name');
+				$tanggal_mulai = $this->input->post('tanggal_mulai');
+				$tanggal_selesai = $this->input->post('tanggal_selesai');
+				$jam_mulai = $this->input->post('jam_mulai');
+				$jam_selesai = $this->input->post('jam_selesai');
 				
 				//Get file path, load model then update entry on database
 				$this->load->model('prodi_model');
-				$query = $this->prodi_model->insert_prodi($akronim, $nama, $logo);
+				$query = $this->prodi_model->insert_prodi($akronim, $nama, $logo, $tanggal_mulai, $tanggal_selesai, $jam_mulai, $jam_selesai);
         }
 		//Set flashdata to inform admin about query result
 		if($query == 'success'){
@@ -376,10 +380,14 @@ class Crud extends CI_Controller {
 
 		$nama = $this->input->post('nama');
 		$akronim = $this->input->post('akronim');
+		$tanggal_mulai = $this->input->post('tanggal_mulai');
+		$tanggal_selesai = $this->input->post('tanggal_selesai');
+		$jam_mulai = $this->input->post('jam_mulai');
+		$jam_selesai = $this->input->post('jam_selesai');
 				
 		//Get file path, load model then update entry on database
 		$this->load->model('prodi_model');
-		$query = $this->prodi_model->update_prodi($id, $akronim, $nama, $logo);
+		$query = $this->prodi_model->update_prodi($id, $akronim, $nama, $logo, $tanggal_mulai, $tanggal_selesai, $jam_mulai, $jam_selesai);
 		
 		//Set flashdata to inform admin about query result
 		if($query == 'success'){
@@ -433,7 +441,7 @@ class Crud extends CI_Controller {
 		redirect(site_url('/admin/background'));
 	}
 
-	public function update_schedule(){
+	/*public function update_schedule(){
 		$startdate = $this->input->post('startdate');
 		$starttime = $this->input->post('starttime');
 		$enddate = $this->input->post('enddate');
@@ -452,7 +460,7 @@ class Crud extends CI_Controller {
 		}
 
 		redirect(site_url('/admin/schedule'));
-	}
+	}*/
 	
 	public function update_landing($id){
 		//Initialize variables
